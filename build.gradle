@@ -25,6 +25,18 @@ repositories {
     mavenCentral()
 }
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = property("groupId")
+            artifactId = property("artifactId")
+            version = property("version")
+
+            from components.java
+        }
+    }
+}
+
 dependencies {
     testImplementation "junit:junit:4.13"
 }
