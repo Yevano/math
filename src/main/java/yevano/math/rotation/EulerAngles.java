@@ -1,5 +1,6 @@
 package yevano.math.rotation;
 
+import lombok.val;
 import yevano.math.Convert;
 import yevano.math.matrix.Matrix3;
 import yevano.math.vector.Vector3;
@@ -66,5 +67,15 @@ public class EulerAngles {
     @Override
     public String toString() {
         return String.format("(%s, %s, %s)", pitch, yaw, roll);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof EulerAngles) {
+            val rhs = (EulerAngles) obj;
+            return pitch == rhs.pitch && yaw == rhs.yaw && roll == rhs.roll;
+        }
+
+        return false;
     }
 }
